@@ -23,19 +23,19 @@ export function GuestPatientForm({ onClose, hospitalId }: GuestPatientFormProps)
     symptoms: false,
     conditions: false,
   });
-
+  
   // Controlled field states
   const [patientId, setPatientId] = useState('');
   const [fullName, setFullName] = useState('');
   const [age, setAge] = useState('');
-
+  
   // Field-specific errors
   const [fieldErrors, setFieldErrors] = useState<{
     patientId?: string;
     fullName?: string;
     age?: string;
   }>({});
-
+  
   // General response or error message
   const [responseData, setResponseData] = useState<any>(null);
   const [error, setError] = useState<string>('');
@@ -102,7 +102,7 @@ export function GuestPatientForm({ onClose, hospitalId }: GuestPatientFormProps)
         },
         body: JSON.stringify(payload),
       });
-
+      
       if (!res.ok) {
         const errorData = await res.json();
         throw new Error(
@@ -120,7 +120,7 @@ export function GuestPatientForm({ onClose, hospitalId }: GuestPatientFormProps)
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center min-h-screen z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-10 z-50 overflow-y-auto pb-10">
       <div className="bg-gray-900 rounded-xl p-8 w-full max-w-lg relative shadow-2xl border border-gray-800">
         <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-blue-500 rounded-full p-4 shadow-xl border-4 border-gray-900">
           <FileText size={32} className="text-white" />
@@ -129,19 +129,10 @@ export function GuestPatientForm({ onClose, hospitalId }: GuestPatientFormProps)
         <button
           onClick={onClose}
           className="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors hover:bg-gray-800 rounded-full p-2"
-
-    
-        
-          
-    
-
-   
-    
-export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
-  
         >
           <X size={20} />
         </button>
+
         <div className="mt-8">
           <h2 className="text-3xl font-bold mb-2 text-white text-center">Patient Information</h2>
           <p className="text-gray-400 text-center mb-8">Please fill in the patient details below</p>
@@ -205,15 +196,6 @@ export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
             </div>
           </div>
 
-
-    
-        
-          
-    
-
-        
-            export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
-  
           {/* Medications Section */}
           <div className="border border-gray-800 rounded-lg overflow-hidden">
             <button
@@ -234,14 +216,6 @@ export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
                   <div key={label} className="relative">
                     <input
                       type="text"
-
-    
-        
-          
-    
-
-          export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
-  
                       className="w-full bg-gray-800 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-200 border border-gray-700 hover:border-gray-600"
                       placeholder={`${label} {med}`}
                     />
@@ -250,6 +224,7 @@ export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
               </div>
             )}
           </div>
+
           {/* Symptoms Section */}
           <div className="border border-gray-800 rounded-lg overflow-hidden">
             <button
@@ -267,8 +242,6 @@ export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
             {expandedSections.symptoms && (
               <div className="p-4 animate-fade-in">
                 <div className="relative">
-        export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
-  
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <AlertCircle size={18} className="text-gray-400" />
                   </div>
@@ -281,6 +254,7 @@ export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
               </div>
             )}
           </div>
+
           {/* Conditions Section */}
           <div className="border border-gray-800 rounded-lg overflow-hidden">
             <button
@@ -298,8 +272,6 @@ export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
             {expandedSections.conditions && (
               <div className="p-4 animate-fade-in">
                 <div className="relative">
-             export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
-  
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <AlertCircle size={18} className="text-gray-400" />
                   </div>
@@ -312,6 +284,7 @@ export function GuestPatientForm({ onClose }: GuestPatientFormProps) {
               </div>
             )}
           </div>
+
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-6 flex items-center justify-center space-x-2"
